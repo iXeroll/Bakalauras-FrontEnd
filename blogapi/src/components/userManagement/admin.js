@@ -3,6 +3,7 @@ import "../../App.css";
 import axiosInstance from "../../axios";
 import Posts from "./posts";
 import PostLoadingComponent from "../PostLoading";
+import { Typography } from "@mui/material";
 
 function Admin() {
   const PostLoading = PostLoadingComponent(Posts);
@@ -20,7 +21,9 @@ function Admin() {
   }, [setAppState]);
   return (
     <div className="App">
-      <h1>Visi skelbimai</h1>
+      <Typography variant="h2" align="center">
+        Visi skelbimai
+      </Typography>
       <PostLoading isLoading={appState.loading} posts={appState.posts} />
     </div>
   );

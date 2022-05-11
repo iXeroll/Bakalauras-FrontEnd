@@ -22,7 +22,7 @@ export function Header() {
   const settings = [
     { title: "Profilis", path: "/" },
     { title: "Skelbimai", path: "/admin" },
-    { title: "Užsakymai", path: "/" },
+    { title: "Užsakymai", path: "/admin/orders" },
     { title: "Atsijungti", path: "/logout" },
   ];
 
