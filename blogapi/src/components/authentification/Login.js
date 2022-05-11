@@ -66,7 +66,7 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Prisijungimas
           </Typography>
           <Box
             component="form"
@@ -79,7 +79,7 @@ export default function SignIn() {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Elektroninis paštas"
               name="email"
               autoComplete="email"
               autoFocus
@@ -89,14 +89,14 @@ export default function SignIn() {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="Slaptažodis"
               type="password"
               id="password"
               autoComplete="current-password"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              label="Prisiminti"
             />
             <Button
               type="submit"
@@ -104,17 +104,17 @@ export default function SignIn() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Prisijungti
             </Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
-                  Forgot password?
+                  Pamiršote slaptažodi
                 </Link>
               </Grid>
               <Grid item>
                 <Link href="http://localhost:3000/register" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                  {"Neturitė paskyros? Susikurkite paskyra"}
                 </Link>
               </Grid>
             </Grid>
