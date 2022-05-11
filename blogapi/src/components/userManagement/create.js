@@ -24,7 +24,7 @@ export default function Create() {
   const [postimage, setPostImage] = useState(null);
 
   const handleChange = (e) => {
-    if ([e.target.name] === "image") {
+    if ([e.target.name] == "image") {
       setPostImage({
         image: e.target.files,
       });

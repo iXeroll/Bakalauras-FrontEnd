@@ -8,16 +8,14 @@ export default function Post() {
   const { id } = useParams();
 
   const [data, setData] = useState({ posts: [] });
+  const [review, setReview] = useState({ review: [] });
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     axiosInstance.get("post/" + id).then((res) => {
       setData({ posts: res.data });
       console.log(res.data);
-      // Get User Data for showing shit
-      // axiosInstance.get("user/" + res.data.author).then((res) => {
-      //   setUser(res.data);
-      // });
+      //Get User Data for showing shit
     });
   }, [setData]);
 
@@ -29,7 +27,7 @@ export default function Post() {
             {data.posts.title}
           </Typography>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <img src={data.posts.image} width="100%"></img>
         </Grid>
         <Grid item xs={6}>
@@ -59,9 +57,24 @@ export default function Post() {
           </Grid>
         </Grid>
       </Grid>
-      <Typography mt={4} variant="h2" align="center">
-        Review vieta
+      <Typography mt={4} variant="h2" align="left">
+        Atsiliepimai
       </Typography>
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <Typography mt={2} mb={1} variant="body1" align="left">
+            Tikrai rekomenduoju! Esu labai patenkintas atliktais darbais. Jų
+            paslaugų reikėjo atlikti elektroninės prekybos puslapio koregavimui,
+            taisymui ir optimizavimui. Viskas atliekama labai kokybiškai ir
+            puslapis iškart atsigavo 😀
+          </Typography>
+          <Typography mt={2} mb={1} variant="body1" align="left">
+            Puikūs savo srities specialistai, darbus atlieka greitai ir
+            kruopščiai, maloniai atsako į visus rūpimus klausimus, tikrai
+            rekomenduojame, būtinai kreipsimės dar kartą.
+          </Typography>
+        </Grid>
+      </Grid>
     </React.Fragment>
   );
 }

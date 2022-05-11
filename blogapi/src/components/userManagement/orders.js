@@ -49,7 +49,7 @@ export default function Orders() {
                   <TableCell align="left">Užsakymo Data</TableCell>
                   <TableCell align="left">Pristatymo data</TableCell>
                   <TableCell align="left">Statusas</TableCell>
-                  <TableCell align="left">Pavadinimas</TableCell>
+                  <TableCell align="left">Aprašymas</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
