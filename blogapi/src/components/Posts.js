@@ -6,6 +6,7 @@ import {
   Grid,
   Typography,
   Container,
+  CardActionArea,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -20,32 +21,23 @@ const Posts = (props) => {
             return (
               // Enterprise card is full width at sm breakpoint
               <Grid item key={post.id} xs={22} md={4}>
-                <Card className="cardClass">
-                  <Link to={`/post/${post.id}`}>
+                <Card sx={{ maxWidth: 345, maxHeight: 345 }}>
+                  <CardActionArea href={`/post/${post.id}`}>
                     <CardMedia
-                      className="cardMedia"
+                      component="img"
+                      height="140"
                       image={post.image}
-                      title="Image title"
-                      style={{ minHeight: 100 }}
+                      alt="green iguana"
                     />
-                  </Link>
-                  <CardContent className="postTitle">
-                    <Typography
-                      gutterBottom
-                      variant="h6"
-                      color="#000dff"
-                      component="h2"
-                      className="oof4"
-                    >
-                      {post.title}
-                    </Typography>
-
-                    <div className="postPrice">
-                      <Typography component="p" color="orange">
-                        Kaina: {post.price} €
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {post.title}
                       </Typography>
-                    </div>
-                  </CardContent>
+                      <Typography variant="h6" color="text.secondary">
+                        Kaina: {post.price} Eur
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
                 </Card>
               </Grid>
             );
