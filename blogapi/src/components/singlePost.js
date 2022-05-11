@@ -42,7 +42,13 @@ export default function Post() {
 
             <Grid item xs={6}>
               <Typography align="center">
-                <Button variant="contained">Užsisakyti</Button>
+                <Button
+                  href={"/admin/order/" + data.posts.id}
+                  color="primary"
+                  variant="contained"
+                >
+                  Užsisakyti
+                </Button>
               </Typography>
             </Grid>
             <Grid item xs={12} mt={4}>
