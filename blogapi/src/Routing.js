@@ -14,6 +14,7 @@ import Create from "./components/userManagement/create";
 import Edit from "./components/userManagement/edit";
 import Delete from "./components/userManagement/delete";
 import Orders from "./components/userManagement/orders";
+import OrdersFrom from "./components/userManagement/ordersFromMe";
 import CreateOrder from "./components/userManagement/createOrder";
 import { UserProvider } from "./UserContext";
 
@@ -34,6 +35,7 @@ function Routing() {
           </Route>
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/admin/orders" element={<Orders />} />
+          <Route exact path="/admin/ordersFrom" element={<OrdersFrom />} />
           <Route exact path="/admin/order/:id" element={<CreateOrder />} />
           <Route exact path="/admin/create" element={<Create />} />
           <Route exact path="/admin/edit/:id" element={<Edit />} />

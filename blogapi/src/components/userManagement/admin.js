@@ -22,7 +22,7 @@ function Admin() {
   }, [setAppState]);
   return (
     <div className="App">
-      <Typography variant="h2" align="center">
+      <Typography variant="h4" align="center">
         Visi skelbimai
       </Typography>
       <PostLoading isLoading={appState.loading} posts={appState.posts} />
