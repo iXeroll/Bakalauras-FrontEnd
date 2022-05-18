@@ -27,14 +27,14 @@ export default function Post() {
             {data.posts.title}
           </Typography>
         </Grid>
-        <Grid item xs={4}>
-          <img src={data.posts.image} width="100%"></img>
+        <Grid item xs={5}>
+          <img src={data.posts.image} height="auto" width="100%"></img>
         </Grid>
         <Grid item xs={6}>
           <Grid item xs={12} container>
             <Grid item xs={6}>
               <Typography variant="h5" align="center">
-                Kaina: {data.posts.price} €
+                Kaina: {data.posts.price} € / val
               </Typography>
             </Grid>
 
