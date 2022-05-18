@@ -47,7 +47,7 @@ export default function CreateOrder() {
       seller: data.posts.author,
       post: data.posts.id,
       comment: formData.description,
-      status: "vykdomas",
+      status: "laukiama patvirtinimo",
       price: data.posts.price,
       creationDate: today,
     });
@@ -57,7 +57,7 @@ export default function CreateOrder() {
         seller: data.posts.author,
         post: data.posts.id,
         comment: formData.description,
-        status: "vykdomas",
+        status: "laukiama patvirtinimo",
         price: data.posts.price,
         creationDate: today,
       })
