@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axiosInstance from "../../axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Typography, Grid, TextField, Button } from "@mui/material";
+import Select from "react-select";
 
 export default function Edit() {
   const navigate = useNavigate();
@@ -20,8 +21,26 @@ export default function Edit() {
 
   const [formData, updateFormData] = useState(initialFormData);
 
+  const [category, setCategory] = useState(null);
+
+  const options = [
+    { value: "Programavimas", label: "Programavimas" },
+    { value: "Grafikos dizainas", label: "Grafikos dizainas" },
+    { value: "Svetainių kūrimas", label: "Svetainių kūrimas" },
+    { value: "Seo Paslaugos", label: "Seo Paslaugos" },
+    { value: "Aplikaciju kūrimas", label: "Aplikaciju kūrimas" },
+    { value: "Kursai", label: "Kursai" },
+    { value: "UI dizainas", label: "UI dizainas" },
+    { value: "UX dizainas", label: "UX dizainas" },
+  ];
+
+  const handleCategory = (event) => {
+    setCategory(event.value);
+  };
+
   useEffect(() => {
     axiosInstance.get("post/" + id).then((res) => {
+      setCategory(res.data.category);
       updateFormData({
         ...formData,
         ["title"]: res.data.title,
@@ -32,6 +51,7 @@ export default function Edit() {
         ["creationDate"]: res.data.creationDate,
         ["updateDate"]: res.data.updateDate,
       });
+      //setCategory(res.data.category);
       console.log(res.data);
     });
   }, [updateFormData]);
@@ -51,12 +71,14 @@ export default function Edit() {
       description: formData.description,
       price: formData.price,
       status: formData.status,
+      category: category,
     });
     axiosInstance
       .put("admin/edit/" + id, {
         author: localStorage.getItem("id"),
         title: formData.title,
         description: formData.description,
+        category: category,
         status: formData.status,
         price: formData.price,
         creationDate: formData.creationDate,
@@ -67,6 +89,25 @@ export default function Edit() {
       });
   };
 
+  const colourStyles = {
+    menuList: (styles) => ({
+      ...styles,
+      background: "white",
+    }),
+    option: (styles, { isFocused, isSelected }) => ({
+      ...styles,
+      background: isFocused
+        ? "hsla(291, 64%, 42%, 0.5)"
+        : isSelected
+        ? "hsla(291, 64%, 42%, 1)"
+        : undefined,
+      zIndex: 1,
+    }),
+    menu: (base) => ({
+      ...base,
+      zIndex: 100,
+    }),
+  };
   return (
     <Container component="main" maxWidth="xs">
       <div className="paper">
@@ -85,6 +126,18 @@ export default function Edit() {
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Select
+                styles={colourStyles}
+                options={options}
+                value={{ label: category }}
+                id="category"
+                name="category"
+                isClearable="True"
+                isSearchable="True"
+                onChange={handleCategory}
               />
             </Grid>
             <Grid item xs={12}>

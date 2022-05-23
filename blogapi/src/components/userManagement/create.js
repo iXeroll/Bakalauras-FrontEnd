@@ -9,6 +9,7 @@ import {
   Button,
   Input,
 } from "@mui/material";
+import Select from "react-select";
 
 export default function Create() {
   const navigate = useNavigate();
@@ -19,6 +20,23 @@ export default function Create() {
     price: "",
     status: "",
   });
+
+  const [category, setCategory] = useState(null);
+
+  const options = [
+    { value: "Programavimas", label: "Programavimas" },
+    { value: "Grafikos dizainas", label: "Grafikos dizainas" },
+    { value: "Svetainių kūrimas", label: "Svetainių kūrimas" },
+    { value: "Seo Paslaugos", label: "Seo Paslaugos" },
+    { value: "Aplikaciju kūrimas", label: "Aplikaciju kūrimas" },
+    { value: "Kursai", label: "Kursai" },
+    { value: "UI dizainas", label: "UI dizainas" },
+    { value: "UX dizainas", label: "UX dizainas" },
+  ];
+
+  const handleCategory = (event) => {
+    setCategory(event.value);
+  };
 
   const [formData, updateFormData] = useState(initialFormData);
   const [postimage, setPostImage] = useState(null);
@@ -41,13 +59,6 @@ export default function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      title: formData.title,
-      description: formData.description,
-      price: formData.price,
-      status: formData.status,
-      image: postimage,
-    });
     axiosInstance
       .post(
         "admin/create",
@@ -55,6 +66,7 @@ export default function Create() {
           author: localStorage.getItem("id"),
           title: formData.title,
           description: formData.description,
+          category: category,
           status: formData.status,
           price: formData.price,
           creationDate: today,
@@ -66,6 +78,26 @@ export default function Create() {
       .then((res) => {
         navigate("/admin/");
       });
+  };
+
+  const colourStyles = {
+    menuList: (styles) => ({
+      ...styles,
+      background: "white",
+    }),
+    option: (styles, { isFocused, isSelected }) => ({
+      ...styles,
+      background: isFocused
+        ? "hsla(291, 64%, 42%, 0.5)"
+        : isSelected
+        ? "hsla(291, 64%, 42%, 1)"
+        : undefined,
+      zIndex: 1,
+    }),
+    menu: (base) => ({
+      ...base,
+      zIndex: 100,
+    }),
   };
 
   return (
@@ -85,6 +117,18 @@ export default function Create() {
                 label="Skelbimo pavadinimas"
                 name="title"
                 onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Select
+                styles={colourStyles}
+                options={options}
+                value={formData.category}
+                id="category"
+                name="category"
+                isClearable="True"
+                isSearchable="True"
+                onChange={handleCategory}
               />
             </Grid>
             <Grid item xs={12}>
