@@ -16,6 +16,7 @@ import Delete from "./components/userManagement/delete";
 import Orders from "./components/userManagement/orders";
 import OrdersFrom from "./components/userManagement/ordersFromMe";
 import CreateOrder from "./components/userManagement/createOrder";
+import Messaging from "./components/userManagement/messaging";
 import { UserProvider } from "./UserContext";
 
 function Routing() {
@@ -37,6 +38,11 @@ function Routing() {
           <Route exact path="/admin/orders" element={<Orders />} />
           <Route exact path="/admin/ordersFrom" element={<OrdersFrom />} />
           <Route exact path="/admin/order/:id" element={<CreateOrder />} />
+          <Route
+            exact
+            path="/admin/order/messages/:id"
+            element={<Messaging />}
+          />
           <Route exact path="/admin/create" element={<Create />} />
           <Route exact path="/admin/edit/:id" element={<Edit />} />
           <Route exact path="/admin/delete/:id" element={<Delete />} />

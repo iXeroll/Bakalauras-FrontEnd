@@ -18,13 +18,14 @@ const Posts = (props) => {
   const { posts } = props;
   return (
     <React.Fragment>
-      <Container maxWidth="md" component="main">
+      <Container maxWidth="lg" component="main">
         <Paper className="root">
           <TableContainer className="container">
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow>
                   <TableCell align="left">Pavadinimas</TableCell>
+                  <TableCell align="left">Kategorija</TableCell>
                   <TableCell align="left">Kaina</TableCell>
                   <TableCell align="left">Statusas</TableCell>
                   <TableCell align="left">Atnaujinimo data</TableCell>
@@ -44,6 +45,7 @@ const Posts = (props) => {
                           {post.title}
                         </Link>
                       </TableCell>
+                      <TableCell align="left">{post.category}</TableCell>
                       <TableCell align="left">{post.price}</TableCell>
                       <TableCell align="left">{post.status}</TableCell>
                       <TableCell align="left">{post.updateDate}</TableCell>

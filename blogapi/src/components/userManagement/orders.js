@@ -34,7 +34,7 @@ export default function Orders() {
         Mano užsakymai
       </Typography>
 
-      <Container maxWidth="md" component="main">
+      <Container maxWidth="lg" component="main">
         <Paper className="root">
           <TableContainer className="container">
             <Table stickyHeader aria-label="sticky table">

@@ -18,6 +18,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import axiosInstance from "../../axios";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import MessageIcon from "@mui/icons-material/Message";
 
 export default function OrdersFrom() {
   const [data, setData] = useState({ order: [] });
@@ -53,12 +54,16 @@ export default function OrdersFrom() {
       });
   };
 
+  const moveToMessages = (e) => {
+    navigate("/admin/order/messages/" + e);
+  };
+
   return (
     <React.Fragment>
       <Typography variant="h4" align="center">
         Užsakyti iš manes
       </Typography>
-      <Container maxWidth="md" component="main">
+      <Container maxWidth="lg" component="main">
         <Paper className="root">
           <TableContainer className="container">
             <Table stickyHeader aria-label="sticky table">
@@ -70,7 +75,7 @@ export default function OrdersFrom() {
                   <TableCell align="left">Pristatymo data</TableCell>
                   <TableCell align="left">Statusas</TableCell>
                   <TableCell align="left">Aprašymas</TableCell>
-                  <TableCell align="left" width="15%">
+                  <TableCell align="center" width="15%">
                     Veiksmai
                   </TableCell>
                 </TableRow>
@@ -117,6 +122,14 @@ export default function OrdersFrom() {
                           }}
                         >
                           <DeleteForeverIcon />
+                        </IconButton>
+                        <IconButton
+                          aria-label="confirm"
+                          onClick={() => {
+                            moveToMessages(order.id);
+                          }}
+                        >
+                          <MessageIcon />
                         </IconButton>
                       </TableCell>
                     </TableRow>
