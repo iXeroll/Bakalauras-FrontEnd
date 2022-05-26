@@ -70,7 +70,7 @@ export default function CreateOrder() {
     <Container component="main" maxWidth="xs">
       <div className="paper">
         <Typography component="h1" variant="h5">
-          Sukurti nauja užsakyma
+          Sukurti nauja užsakymą
         </Typography>
         <form className="form" noValidate>
           <Grid container spacing={4}>
@@ -97,7 +97,7 @@ export default function CreateOrder() {
             className="submit"
             onClick={handleSubmit}
           >
-            Sukurti užsakyma
+            Sukurti užsakymą
           </Button>
         </form>
       </div>

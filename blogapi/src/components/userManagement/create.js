@@ -104,7 +104,7 @@ export default function Create() {
     <Container component="main" maxWidth="xs">
       <div className="paper">
         <Typography component="h1" variant="h5">
-          Sukurti nauja paslaugos skelbima
+          Sukurti nauja paslaugos skelbimą
         </Typography>
         <form className="form" noValidate>
           <Grid container spacing={4}>
@@ -185,7 +185,7 @@ export default function Create() {
             className="submit"
             onClick={handleSubmit}
           >
-            Sukurti skelbima
+            Sukurti skelbimą
           </Button>
         </form>
       </div>

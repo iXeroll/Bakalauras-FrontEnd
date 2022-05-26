@@ -20,7 +20,6 @@ export default function Messaging() {
   useEffect(() => {
     axiosInstance.get("admin/order/messages/" + id).then((res) => {
       setData({ message: res.data });
-      console.log(res.data);
     });
   }, [setData]);
 

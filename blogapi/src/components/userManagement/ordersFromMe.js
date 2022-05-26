@@ -61,7 +61,7 @@ export default function OrdersFrom() {
   return (
     <React.Fragment>
       <Typography variant="h4" align="center">
-        Užsakyti iš manes
+        Užsakyti iš manęs
       </Typography>
       <Container maxWidth="lg" component="main">
         <Paper className="root">

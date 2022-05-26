@@ -12,12 +12,16 @@ import {
   Button,
   Typography,
   Grid,
+  IconButton,
 } from "@mui/material";
 import axiosInstance from "../../axios";
+import MessageIcon from "@mui/icons-material/Message";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Orders() {
   const [data, setData] = useState({ order: [] });
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axiosInstance
@@ -28,13 +32,17 @@ export default function Orders() {
       });
   }, [setData]);
 
+  const moveToMessages = (e) => {
+    navigate("/admin/order/messages/" + e);
+  };
+
   return (
     <React.Fragment>
       <Typography variant="h4" align="center">
         Mano užsakymai
       </Typography>
 
-      <Container maxWidth="lg" component="main">
+      <Container maxWidth="md" component="main">
         <Paper className="root">
           <TableContainer className="container">
             <Table stickyHeader aria-label="sticky table">
@@ -46,6 +54,7 @@ export default function Orders() {
                   <TableCell align="left">Pristatymo data</TableCell>
                   <TableCell align="left">Statusas</TableCell>
                   <TableCell align="left">Aprašymas</TableCell>
+                  <TableCell align="left">Veiksmai</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -66,6 +75,16 @@ export default function Orders() {
                       <TableCell align="left">{order.completionDate}</TableCell>
                       <TableCell align="left">{order.status}</TableCell>
                       <TableCell align="left">{order.comment}</TableCell>
+                      <TableCell align="center">
+                        <IconButton
+                          aria-label="confirm"
+                          onClick={() => {
+                            moveToMessages(order.id);
+                          }}
+                        >
+                          <MessageIcon />
+                        </IconButton>
+                      </TableCell>
                     </TableRow>
                   );
                 })}

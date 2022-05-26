@@ -112,7 +112,7 @@ export default function Edit() {
     <Container component="main" maxWidth="xs">
       <div className="paper">
         <Typography component="h1" variant="h5">
-          Atnaujinti skelbima
+          Atnaujinti skelbimą
         </Typography>
         <form className="form" noValidate>
           <Grid container spacing={4}>
@@ -188,7 +188,7 @@ export default function Edit() {
             className="submit"
             onClick={handleSubmit}
           >
-            Atnaujinti skelbima
+            Atnaujinti skelbimą
           </Button>
         </form>
       </div>
